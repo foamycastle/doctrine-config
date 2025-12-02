@@ -4,11 +4,11 @@ Use this package to configure Doctrine connections by using Symfony-style PHP co
 ### Usage
 
 ```php
-use Foamycastle\Config\MySQLConfiguration;use Foamycastle\Config\MySQLSetConfiguration;
-
+use Foamycastle\Config\MySQLConfiguration;
 $config = MySQLConfiguration::fromConfigFile('configFile.php');
 
 //configFile.php
+use Foamycastle\Config\MySQLSetConfiguration;
 
 return static function (MySQLSetConfiguration $config) {
     $config
@@ -19,4 +19,5 @@ return static function (MySQLSetConfiguration $config) {
         ->setDatabase('db_name')
         ->setCharset('utf8mb4');
 }
+
 ```
