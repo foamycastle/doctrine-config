@@ -1,0 +1,21 @@
+{
+  "name": "foamycastle/doctrine-config",
+  "description": "a generic doctrine configuration wrapper",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Aaron Sollman",
+      "email": "unclepong@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "foamycastle/config": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Foamycastle\\Config\\": "src"
+    }
+  }
+}
