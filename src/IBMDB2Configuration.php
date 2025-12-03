@@ -11,7 +11,10 @@ namespace Foamycastle\Config;
 
 class IBMDB2Configuration extends BaseConfig implements IBMDB2GetConfiguration, IBMDB2SetConfiguration
 {
-
+    public function __construct(?string $name = null)
+    {
+        parent::__construct($name ?? self::NAME);
+    }
     function setUser(?string $user): IBMDB2SetConfiguration
     {
         $this->set(Key::USER, $user);

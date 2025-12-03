@@ -13,11 +13,11 @@ use Foamycastle\ConfigConfiguration;
 
 class SQLiteConfiguration extends DoctrineConfiguration implements SQLiteSetConfiguration, SQLiteGetConfiguration
 {
-    
+    public const NAME = 'sqlite_configuration';
 
     public function __construct(?string $name = null)
     {
-        parent::__construct($name);
+        parent::__construct($name ?? self::NAME);
     }
 
     function setUser(string|null $user): SQLiteSetConfiguration

@@ -13,6 +13,12 @@ namespace Foamycastle\Config;
 
 class SQLSrvConfiguration extends BaseConfig implements SQLSrvGetConfiguration, SQLSrvSetConfiguration
 {
+    public const NAME = 'sqlsrv_configuration';
+    function __construct(?string $name = null)
+    {
+        parent::__construct($name ?? self::NAME);
+    }
+
     function setUser(?string $user): SQLSrvSetConfiguration
     {
         $this->set(Key::USER, $user);

@@ -14,6 +14,10 @@ use Foamycastle\Config\BaseConfig;
 class PGSQLConfiguration extends BaseConfig implements PGSQLSetConfiguration, PGSQLGetConfiguration
 {
     public const NAME = 'pgsql_configuration';
+    public function __construct(?string $name = null)
+    {
+        parent::__construct($name ?? self::NAME);
+    }
 
     function setCharset(?string $charset): PGSQLSetConfiguration
     {

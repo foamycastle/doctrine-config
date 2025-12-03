@@ -11,6 +11,10 @@ namespace Foamycastle\Config;
 
 class OCIConfiguration extends BaseConfig implements OCIGetConfiguration, OCISetConfiguration
 {
+    function __construct(?string $name = null)
+    {
+        parent::__construct($name ?? self::NAME);
+    }
     function setUser(?string $user): OCISetConfiguration
     {
         $this->set(Key::USER, $user);
