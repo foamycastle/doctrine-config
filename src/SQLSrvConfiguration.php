@@ -11,9 +11,12 @@ namespace Foamycastle\Config;
 
 
 
+use Foamycastle\Utilities\Arr;
+
 class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConfiguration, SQLSrvSetConfiguration
 {
     public const NAME = 'sqlsrv_configuration';
+    public const DSN_STRING='{driver}://{user}:{password}@{host}:{port}/{dbname}';
     public const KEYS = [
         Key::DRIVER,
         Key::USER,
@@ -117,6 +120,7 @@ class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConf
     public static function fromArray(array $path): static
     {
         $instance = new static(self::NAME);
+        $instance->setDriver('sqlsrv');
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
         $instance->setPort($path[Key::PORT] ?? null);
@@ -125,4 +129,5 @@ class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConf
         $instance->setDriverOptions($path[Key::DRIVER_OPTIONS] ?? []);
         return $instance;
     }
+
 }

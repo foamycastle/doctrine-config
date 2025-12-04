@@ -224,6 +224,7 @@ class PGSQLConfiguration extends DoctrineConfiguration implements PGSQLSetConfig
     public static function fromArray(array $config): static
     {
         $instance = new static(self::NAME);
+        $instance->setDriver('pgsql');
         $instance->setCharset($config[Key::CHARSET] ?? null);
         $instance->setUser($config[Key::USER] ?? null);
         $instance->setPassword($config[Key::PASSWORD] ?? null);

@@ -128,7 +128,7 @@ class IBMDB2Configuration extends DoctrineConfiguration implements IBMDB2GetConf
     public static function fromArray(array $path): static
     {
         $instance = new static(self::NAME);
-        $instance->setDriver($path[Key::DRIVER] ?? null);
+        $instance->setDriver('ibm_db2');
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
         $instance->setPort($path[Key::PORT] ?? null);

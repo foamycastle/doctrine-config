@@ -206,6 +206,7 @@ class OCIConfiguration extends DoctrineConfiguration implements OCIGetConfigurat
     public static function fromArray(array $path): static
     {
         $instance = new static(self::NAME);
+        $instance->setDriver('oci8');
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
         $instance->setPort($path[Key::PORT] ?? null);

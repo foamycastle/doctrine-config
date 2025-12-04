@@ -15,7 +15,6 @@ abstract class DoctrineConfiguration extends BaseConfig
 {
     public const NAME = 'doctrine_configuration';
     public const KEYS=[];
-    public const DSN_STRING='{driver}://{user}:{password}@{host}:{port}/{dbname}';
     protected Connection $conn;
 
     public function __construct(?string $name = null)
@@ -29,8 +28,8 @@ abstract class DoctrineConfiguration extends BaseConfig
     public function __serialize(): array
     {
         $output=[];
-        foreach(self::KEYS as $key){
-            if($this->get($key!==null)){
+        foreach(static::KEYS as $key){
+            if($this->get($key)!==null){
                 $output[$key]=$this->get($key);
             }
         }
@@ -44,15 +43,5 @@ abstract class DoctrineConfiguration extends BaseConfig
         foreach($data as $key=>$value){
             $this->set($key,$value);
         }
-    }
-    function getDSNString():string
-    {
-        $localVars=$this->toArray();
-        $key_array=array_map(function($key) {
-            return '#{'.$key.'}#';
-            },
-            $localVars,ARRAY_FILTER_USE_KEY
-        );
-        return preg_replace($key_array,array_values($localVars), self::DSN_STRING);
     }
 }

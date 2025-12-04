@@ -217,6 +217,7 @@ class MySQLConfiguration extends DoctrineConfiguration implements MySQLSetConfig
     {
         /** @var MySQLSetConfiguration $instance */
         $instance = new static(self::NAME);
+        $instance->setDriver('mysqli');
         $instance->setCharset($path[Key::CHARSET] ?? null);
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);

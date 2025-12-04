@@ -91,6 +91,7 @@ class SQLiteConfiguration extends DoctrineConfiguration implements SQLiteSetConf
     {
         /** @var SQLiteSetConfiguration $config */
         $config = new self(self::NAME);
+        $config->setDriver('sqlite3');
         $config->setUser($path[Key::USER] ?? '');
         $config->setPassword($path[Key::PASSWORD] ?? '');
         $config->setPath($path[Key::PATH] ?? '');

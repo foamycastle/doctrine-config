@@ -14,7 +14,8 @@
     "foamycastle/config": "@dev",
     "doctrine/dbal": "4.4.*",
     "doctrine/orm": "3.5.*",
-    "symfony/cache": "8.0.*"
+    "symfony/cache": "8.0.*",
+    "foamycastle/helper": "@dev"
   },
   "require-dev": {
     "phpunit/phpunit": "^12"
