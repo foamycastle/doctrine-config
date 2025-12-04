@@ -12,11 +12,27 @@ namespace Foamycastle\Config;
 class MySQLConfiguration extends DoctrineConfiguration implements MySQLSetConfiguration, MySQLGetConfiguration
 {
     public const NAME = 'mysql_configuration';
+    public const KEYS = [
+        Key::DRIVER,
+        Key::CHARSET,
+        Key::USER,
+        Key::PASSWORD,
+        Key::PORT,
+        Key::HOST,
+        Key::DBNAME,
+        Key::UNIX_SOCKET,
+        Key::PERSISTENT,
+        Key::SSL_KEY,
+    ];
     public function __construct(?string $name = null)
     {
         parent::__construct($name ?? self::NAME);
     }
 
+    function getDriver(): ?string
+    {
+        return $this->get(Key::DRIVER);
+    }
     function getCharset(): ?string
     {
         return $this->get(Key::CHARSET);
@@ -87,6 +103,11 @@ class MySQLConfiguration extends DoctrineConfiguration implements MySQLSetConfig
         return $this->get(Key::DRIVER_OPTIONS);
     }
 
+    function setDriver(?string $driver=null): MySQLSetConfiguration
+    {
+        $this->set(Key::DRIVER, $driver);
+        return $this;
+    }
     function setCharset(?string $charset=null): MySQLSetConfiguration
     {
         $this->set(Key::CHARSET, $charset);

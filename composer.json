@@ -11,7 +11,10 @@
   ],
   "require": {
     "php": "^8.1",
-    "foamycastle/config": "@dev"
+    "foamycastle/config": "@dev",
+    "doctrine/dbal": "4.4.*",
+    "doctrine/orm": "3.5.*",
+    "symfony/cache": "8.0.*"
   },
   "autoload": {
     "psr-4": {

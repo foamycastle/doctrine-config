@@ -11,6 +11,7 @@ namespace Foamycastle\Config;
 
 interface SQLiteSetConfiguration
 {
+    function setDriver(?string $driver):self;
     function setUser(?string $user):self;
     function setPassword(?string $password):self;
     function setPath(?string $path):self;

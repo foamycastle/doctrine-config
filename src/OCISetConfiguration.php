@@ -11,6 +11,7 @@ namespace Foamycastle\Config;
 
 interface OCISetConfiguration
 {
+    function setDriver(?string $driver):self;
     function setUser(?string $user):self;
     function setPassword(?string $password):self;
     function setPort(?int $port):self;

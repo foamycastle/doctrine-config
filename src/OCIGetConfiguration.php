@@ -11,6 +11,7 @@ namespace Foamycastle\Config;
 
 interface OCIGetConfiguration
 {
+    function getDriver():?string;
     function getCharset():?string;
     function getUser():?string;
     function getPassword():?string;

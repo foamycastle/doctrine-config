@@ -9,11 +9,27 @@
 
 namespace Foamycastle\Config;
 
-class IBMDB2Configuration extends BaseConfig implements IBMDB2GetConfiguration, IBMDB2SetConfiguration
+class IBMDB2Configuration extends DoctrineConfiguration implements IBMDB2GetConfiguration, IBMDB2SetConfiguration
 {
+    public const NAME = 'ibmdb2_configuration';
+    public const KEYS = [
+        Key::DRIVER,
+        Key::USER,
+        Key::PASSWORD,
+        Key::PORT,
+        Key::HOST,
+        Key::DBNAME,
+        Key::DRIVER_OPTIONS,
+        Key::PERSISTENT
+    ];
     public function __construct(?string $name = null)
     {
         parent::__construct($name ?? self::NAME);
+    }
+    function setDriver(?string $driver): IBMDB2SetConfiguration
+    {
+        $this->set(Key::DRIVER, $driver);
+        return $this;
     }
     function setUser(?string $user): IBMDB2SetConfiguration
     {
@@ -57,6 +73,10 @@ class IBMDB2Configuration extends BaseConfig implements IBMDB2GetConfiguration, 
         return $this;
     }
 
+    function getDriver(): ?string
+    {
+        return $this->get(Key::DRIVER);
+    }
     function getUser(): ?string
     {
         return $this->get(Key::USER);
@@ -94,6 +114,7 @@ class IBMDB2Configuration extends BaseConfig implements IBMDB2GetConfiguration, 
 
     /**
      * @param array{
+     *     driver?: string,
      *     user?: string,
      *     password?: string,
      *     port?: int,
@@ -107,6 +128,7 @@ class IBMDB2Configuration extends BaseConfig implements IBMDB2GetConfiguration, 
     public static function fromArray(array $path): static
     {
         $instance = new static(self::NAME);
+        $instance->setDriver($path[Key::DRIVER] ?? null);
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
         $instance->setPort($path[Key::PORT] ?? null);
@@ -116,4 +138,7 @@ class IBMDB2Configuration extends BaseConfig implements IBMDB2GetConfiguration, 
         $instance->setPersistent($path[Key::PERSISTENT] ?? null);
         return $instance;
     }
+
+
+
 }

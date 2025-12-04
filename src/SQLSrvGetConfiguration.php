@@ -11,6 +11,7 @@ namespace Foamycastle\Config;
 
 interface SQLSrvGetConfiguration
 {
+    function getDriver():?string;
     function getUserName():?string;
     function getPassword():?string;
     function getPort():?int;

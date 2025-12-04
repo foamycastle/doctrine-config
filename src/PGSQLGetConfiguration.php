@@ -11,6 +11,7 @@ namespace Foamycastle\Config;
 
 interface PGSQLGetConfiguration
 {
+    function getDriver():?string;
     function getUser():?string;
     function getPassword():?string;
     function getPort():?int;
