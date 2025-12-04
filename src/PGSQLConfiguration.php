@@ -14,6 +14,22 @@ use Foamycastle\Config\BaseConfig;
 class PGSQLConfiguration extends BaseConfig implements PGSQLSetConfiguration, PGSQLGetConfiguration
 {
     public const NAME = 'pgsql_configuration';
+    public const KEYS = [
+        Key::USER,
+        Key::PASSWORD,
+        Key::PORT,
+        Key::HOST,
+        Key::DBNAME,
+        Key::PG_SSL_MODE,
+        Key::PG_APP_NAME,
+        Key::PG_SSL_KEY,
+        Key::PG_SSL_CERT,
+        Key::PG_SSL_CRL,
+        Key::PG_SSL_ROOTCERT,
+        Key::PERSISTENT,
+        Key::PG_GSS_ENCMODE,
+        Key::CHARSET
+    ];
     public function __construct(?string $name = null)
     {
         parent::__construct($name ?? self::NAME);
