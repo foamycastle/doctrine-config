@@ -209,7 +209,7 @@ class OCIConfiguration extends DoctrineConfiguration implements OCIGetConfigurat
         $instance->setDriver('oci8');
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
-        $instance->setPort($path[Key::PORT] ?? null);
+        $instance->setPort(1521 ?? null);
         $instance->setHost($path[Key::HOST] ?? null);
         $instance->setDBName($path[Key::DBNAME] ?? null);
         $instance->setPooled($path[Key::OCI_POOLED] ?? null);

@@ -131,7 +131,7 @@ class IBMDB2Configuration extends DoctrineConfiguration implements IBMDB2GetConf
         $instance->setDriver('ibm_db2');
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
-        $instance->setPort($path[Key::PORT] ?? null);
+        $instance->setPort(50000 ?? null);
         $instance->setHost($path[Key::HOST] ?? null);
         $instance->setDBName($path[Key::DBNAME] ?? null);
         $instance->setDriverOptions($path[Key::DRIVER_OPTIONS] ?? []);

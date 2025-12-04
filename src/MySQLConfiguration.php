@@ -221,7 +221,7 @@ class MySQLConfiguration extends DoctrineConfiguration implements MySQLSetConfig
         $instance->setCharset($path[Key::CHARSET] ?? null);
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
-        $instance->setPort($path[Key::PORT] ?? null);
+        $instance->setPort(3306 ?? null);
         $instance->setHost($path[Key::HOST] ?? null);
         $instance->setDBName($path[Key::DBNAME] ?? null);
         $instance->setUnixSocket($path[Key::UNIX_SOCKET] ?? null);

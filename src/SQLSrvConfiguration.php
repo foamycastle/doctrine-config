@@ -123,7 +123,7 @@ class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConf
         $instance->setDriver('sqlsrv');
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
-        $instance->setPort($path[Key::PORT] ?? null);
+        $instance->setPort(1433 ?? null);
         $instance->setHost($path[Key::HOST] ?? null);
         $instance->setDBName($path[Key::DBNAME] ?? null);
         $instance->setDriverOptions($path[Key::DRIVER_OPTIONS] ?? []);

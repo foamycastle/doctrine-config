@@ -228,7 +228,7 @@ class PGSQLConfiguration extends DoctrineConfiguration implements PGSQLSetConfig
         $instance->setCharset($config[Key::CHARSET] ?? null);
         $instance->setUser($config[Key::USER] ?? null);
         $instance->setPassword($config[Key::PASSWORD] ?? null);
-        $instance->setPort($config[Key::PORT] ?? null);
+        $instance->setPort(5432 ?? null);
         $instance->setHost($config[Key::HOST] ?? null);
         $instance->setDBName($config[Key::DBNAME] ?? null);
         $instance->setApplicationName($config[Key::PG_APP_NAME] ?? null);
