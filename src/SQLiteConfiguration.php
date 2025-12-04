@@ -14,12 +14,22 @@ use Foamycastle\ConfigConfiguration;
 class SQLiteConfiguration extends DoctrineConfiguration implements SQLiteSetConfiguration, SQLiteGetConfiguration
 {
     public const NAME = 'sqlite_configuration';
-
+    public const KEYS = [
+        Key::DRIVER,
+        Key::USER,
+        Key::PASSWORD,
+        Key::PATH,
+        Key::IN_MEMORY
+    ];
     public function __construct(?string $name = null)
     {
         parent::__construct($name ?? self::NAME);
     }
-
+    function setDriver(?string $driver): SQLiteSetConfiguration
+    {
+        $this->set(Key::DRIVER, $driver);
+        return $this;
+    }
     function setUser(string|null $user): SQLiteSetConfiguration
     {
         $this->set(Key::USER, $user);
@@ -43,7 +53,10 @@ class SQLiteConfiguration extends DoctrineConfiguration implements SQLiteSetConf
         $this->set(Key::IN_MEMORY, $inMemory);
         return $this;
     }
-
+    function getDriver(): ?string
+    {
+        return $this->get(Key::DRIVER);
+    }
     function getUser(): ?string
     {
         return $this->get(Key::USER);
@@ -66,6 +79,7 @@ class SQLiteConfiguration extends DoctrineConfiguration implements SQLiteSetConf
 
     /**
      * @param array{
+     *     driver?:string,
      *     user?:string,
      *     pass?:string,
      *     path?:string,

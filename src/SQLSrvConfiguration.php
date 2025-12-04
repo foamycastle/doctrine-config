@@ -11,14 +11,27 @@ namespace Foamycastle\Config;
 
 
 
-class SQLSrvConfiguration extends BaseConfig implements SQLSrvGetConfiguration, SQLSrvSetConfiguration
+class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConfiguration, SQLSrvSetConfiguration
 {
     public const NAME = 'sqlsrv_configuration';
+    public const KEYS = [
+        Key::DRIVER,
+        Key::USER,
+        Key::PASSWORD,
+        Key::PORT,
+        Key::HOST,
+        Key::DBNAME,
+        Key::DRIVER_OPTIONS
+    ];
     function __construct(?string $name = null)
     {
         parent::__construct($name ?? self::NAME);
     }
-
+    function setDriver(?string $driver): SQLSrvSetConfiguration
+    {
+        $this->set(Key::DRIVER, $driver);
+        return $this;
+    }
     function setUser(?string $user): SQLSrvSetConfiguration
     {
         $this->set(Key::USER, $user);
@@ -54,7 +67,10 @@ class SQLSrvConfiguration extends BaseConfig implements SQLSrvGetConfiguration, 
         $this->set(Key::DRIVER_OPTIONS, $driverOptions);
         return $this;
     }
-
+    function getDriver(): ?string
+    {
+        return $this->get(Key::DRIVER);
+    }
     function getUserName(): ?string
     {
         return $this->get(Key::USER);
@@ -87,6 +103,7 @@ class SQLSrvConfiguration extends BaseConfig implements SQLSrvGetConfiguration, 
 
     /**
      * @param array{
+     *     driver?: string,
      *     user?: string,
      *     password?: string,
      *     port?: int,

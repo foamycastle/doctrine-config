@@ -9,11 +9,33 @@
 
 namespace Foamycastle\Config;
 
-class OCIConfiguration extends BaseConfig implements OCIGetConfiguration, OCISetConfiguration
+class OCIConfiguration extends DoctrineConfiguration implements OCIGetConfiguration, OCISetConfiguration
 {
+    public const NAME = 'oci_configuration';
+    public const KEYS=[
+        Key::DRIVER,
+        Key::USER,
+        Key::PASSWORD,
+        Key::PORT,
+        Key::HOST,
+        Key::DBNAME,
+        Key::OCI_POOLED,
+        Key::OCI_CONNECT_STRING,
+        Key::PERSISTENT,
+        Key::OCI_SERVICE_NAME,
+        Key::OCI_SERVICE,
+        Key::OCI_INSTANCE_NAME,
+        Key::DRIVER_OPTIONS,
+        Key::CHARSET
+    ];
     function __construct(?string $name = null)
     {
         parent::__construct($name ?? self::NAME);
+    }
+    function setDriver(?string $driver): OCISetConfiguration
+    {
+        $this->set(Key::DRIVER, $driver);
+        return $this;
     }
     function setUser(?string $user): OCISetConfiguration
     {
@@ -92,6 +114,10 @@ class OCIConfiguration extends BaseConfig implements OCIGetConfiguration, OCISet
         $this->set(Key::DRIVER_OPTIONS, $driverOptions);
         return $this;
     }
+    function getDriver(): ?string
+    {
+        return $this->get(Key::DRIVER);
+    }
 
     function getCharset(): ?string
     {
@@ -160,6 +186,7 @@ class OCIConfiguration extends BaseConfig implements OCIGetConfiguration, OCISet
 
     /**
      * @param array{
+     *     driver?: string,
      *     user?: string,
      *     password?: string,
      *     port?: int,

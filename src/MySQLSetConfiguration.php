@@ -11,6 +11,7 @@ namespace Foamycastle\Config;
 
 interface MySQLSetConfiguration
 {
+    function setDriver(?string $driver):self;
     function setCharset(?string $charset):self;
     function setUser(?string $user):self;
     function setPassword(?string $password):self;

@@ -11,6 +11,7 @@ namespace Foamycastle\Config;
 
 interface MySQLGetConfiguration
 {
+    function getDriver():?string;
     function getCharset():?string;
     function getUser():?string;
     function getPassword():?string;

@@ -11,10 +11,11 @@ namespace Foamycastle\Config;
 
 use Foamycastle\Config\BaseConfig;
 
-class PGSQLConfiguration extends BaseConfig implements PGSQLSetConfiguration, PGSQLGetConfiguration
+class PGSQLConfiguration extends DoctrineConfiguration implements PGSQLSetConfiguration, PGSQLGetConfiguration
 {
     public const NAME = 'pgsql_configuration';
     public const KEYS = [
+        Key::DRIVER,
         Key::USER,
         Key::PASSWORD,
         Key::PORT,
@@ -34,7 +35,11 @@ class PGSQLConfiguration extends BaseConfig implements PGSQLSetConfiguration, PG
     {
         parent::__construct($name ?? self::NAME);
     }
-
+    function setDriver(?string $driver): PGSQLSetConfiguration
+    {
+        $this->set(Key::DRIVER, $driver);
+        return $this;
+    }
     function setCharset(?string $charset): PGSQLSetConfiguration
     {
         $this->set(Key::CHARSET, $charset);
@@ -122,7 +127,10 @@ class PGSQLConfiguration extends BaseConfig implements PGSQLSetConfiguration, PG
         $this->set(Key::PG_GSS_ENCMODE, $gssEncMode);
         return $this;
     }
-
+    function getDriver(): ?string
+    {
+        return $this->get(Key::DRIVER);
+    }
     function getUser(): ?string
     {
         return $this->get(Key::USER);
@@ -195,6 +203,7 @@ class PGSQLConfiguration extends BaseConfig implements PGSQLSetConfiguration, PG
 
     /**
      * @param array{
+     *     driver?: string,
      *     user?: string,
      *     password?: string,
      *     port?: int,

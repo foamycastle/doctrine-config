@@ -39,4 +39,5 @@ class Key
     public const OCI_POOLED = 'pooled';
     public const OCI_INSTANCE_NAME = 'instancename';
     public const OCI_CONNECT_STRING = 'connectstring';
+    public const DRIVER = 'driver';
 }
