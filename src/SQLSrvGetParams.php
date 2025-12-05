@@ -9,7 +9,7 @@
 
 namespace Foamycastle\Config;
 
-interface SQLSrvGetConfiguration
+interface SQLSrvGetParams
 {
     function getDriver():?string;
     function getUserName():?string;

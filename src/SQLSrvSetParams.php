@@ -9,7 +9,7 @@
 
 namespace Foamycastle\Config;
 
-interface SQLSrvSetConfiguration
+interface SQLSrvSetParams
 {
     function setDriver(?string $driver):self;
     function setUser(?string $user):self;

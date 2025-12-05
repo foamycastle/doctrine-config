@@ -4,13 +4,13 @@ Use this package to configure Doctrine connections by using Symfony-style PHP co
 ### Usage
 
 ```php
-use Foamycastle\Config\MySQLConfiguration;
-$config = MySQLConfiguration::fromConfigFile('configFile.php');
+use Foamycastle\Config\MySQLParams;
+$config = MySQLParams::fromConfigFile('configFile.php');
 
 //configFile.php
-use Foamycastle\Config\MySQLSetConfiguration;
+use Foamycastle\Config\MySQLSetParams;
 
-return static function (MySQLSetConfiguration $config) {
+return static function (MySQLSetParams $config) {
     $config
         ->setHost('db_host.com')
         ->setUser('db_user')

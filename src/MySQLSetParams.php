@@ -3,13 +3,13 @@
  *  Author: Aaron Sollman
  *  Email:  unclepong@gmail.com
  *  Date:   12/02/25
- *  Time:   15:29
+ *  Time:   14:33
 */
 
 
 namespace Foamycastle\Config;
 
-interface PGSQLSetConfiguration
+interface MySQLSetParams
 {
     function setDriver(?string $driver):self;
     function setCharset(?string $charset):self;
@@ -18,14 +18,12 @@ interface PGSQLSetConfiguration
     function setPort(?int $port):self;
     function setHost(?string $host):self;
     function setDBName(?string $dbName):self;
-    function setSSLMode(?string $sslMode):self;
-    function setApplicationName(?string $applicationName):self;
+    function setUnixSocket(?string $unixSocket):self;
+    function setPersistent(bool $persistent = true):self;
     function setSSLKey(?string $sslKey):self;
     function setSSLCert(?string $sslCert):self;
-    function setSSLCRL(?string $sslCRL):self;
-    function setSSLRootCert(?string $sslRootCert):self;
-    function setPersistent(bool $persistent = true):self;
-    function setGSSEncMode(?string $gssEncMode):self;
-
-
+    function setSSLCA(?string $sslCA):self;
+    function setSSLCipher(?string $sslCipher):self;
+    function setSSLCaPath(?string $sslCaPath):self;
+    function setDriverOptions(int $driverOptions):self;
 }

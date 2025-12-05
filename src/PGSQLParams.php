@@ -11,7 +11,7 @@ namespace Foamycastle\Config;
 
 use Foamycastle\Config\BaseConfig;
 
-class PGSQLConfiguration extends DoctrineConfiguration implements PGSQLSetConfiguration, PGSQLGetConfiguration
+class PGSQLParams extends DoctrineParams implements PGSQLSetParams, PGSQLGetParams
 {
     public const NAME = 'pgsql_configuration';
     public const KEYS = [
@@ -35,94 +35,94 @@ class PGSQLConfiguration extends DoctrineConfiguration implements PGSQLSetConfig
     {
         parent::__construct($name ?? self::NAME);
     }
-    function setDriver(?string $driver): PGSQLSetConfiguration
+    function setDriver(?string $driver): PGSQLSetParams
     {
         $this->set(Key::DRIVER, $driver);
         return $this;
     }
-    function setCharset(?string $charset): PGSQLSetConfiguration
+    function setCharset(?string $charset): PGSQLSetParams
     {
         $this->set(Key::CHARSET, $charset);
         return $this;
     }
 
-    function setUser(?string $user): PGSQLSetConfiguration
+    function setUser(?string $user): PGSQLSetParams
     {
         $this->set(Key::USER, $user);
         return $this;
     }
 
-    function setPassword(?string $password): PGSQLSetConfiguration
+    function setPassword(?string $password): PGSQLSetParams
     {
         $this->set(Key::PASSWORD, $password);
         return $this;
     }
 
-    function setPort(?int $port): PGSQLSetConfiguration
+    function setPort(?int $port): PGSQLSetParams
     {
         $this->set(Key::PORT, $port);
         return $this;
     }
 
-    function setHost(?string $host): PGSQLSetConfiguration
+    function setHost(?string $host): PGSQLSetParams
     {
         $this->set(Key::HOST, $host);
         return $this;
 
     }
 
-    function setDBName(?string $dbName): PGSQLSetConfiguration
+    function setDBName(?string $dbName): PGSQLSetParams
     {
         $this->set(Key::DBNAME, $dbName);
         return $this;
 
     }
 
-    function setSSLMode(?string $sslMode): PGSQLSetConfiguration
+    function setSSLMode(?string $sslMode): PGSQLSetParams
     {
         $this->set(Key::PG_SSL_MODE, $sslMode);
         return $this;
     }
 
-    function setApplicationName(?string $applicationName): PGSQLSetConfiguration
+    function setApplicationName(?string $applicationName): PGSQLSetParams
     {
         $this->set(Key::PG_APP_NAME, $applicationName);
         return $this;
     }
 
-    function setSSLKey(?string $sslKey): PGSQLSetConfiguration
+    function setSSLKey(?string $sslKey): PGSQLSetParams
     {
         $this->set(Key::PG_SSL_KEY, $sslKey);
         return $this;
     }
 
-    function setSSLCert(?string $sslCert): PGSQLSetConfiguration
+    function setSSLCert(?string $sslCert): PGSQLSetParams
     {
         $this->set(Key::PG_SSL_CERT, $sslCert);
         return $this;
 
     }
 
-    function setSSLCRL(?string $sslCRL): PGSQLSetConfiguration
+    function setSSLCRL(?string $sslCRL): PGSQLSetParams
     {
         $this->set(Key::PG_SSL_CRL, $sslCRL);
         return $this;
 
     }
 
-    function setSSLRootCert(?string $sslRootCert): PGSQLSetConfiguration
+    function setSSLRootCert(?string $sslRootCert): PGSQLSetParams
     {
         $this->set(Key::PG_SSL_ROOTCERT, $sslRootCert);
         return $this;
     }
 
-    function setPersistent(bool $persistent = true): PGSQLSetConfiguration
+    function setPersistent(bool $persistent = true): PGSQLSetParams
     {
         $this->set(Key::PERSISTENT, $persistent);
         return $this;
     }
 
-    function setGSSEncMode(?string $gssEncMode): PGSQLSetConfiguration
+    function setGSSEncMode(?string $gssEncMode): PGSQLSetParams
     {
         $this->set(Key::PG_GSS_ENCMODE, $gssEncMode);
         return $this;

@@ -9,7 +9,7 @@
 
 namespace Foamycastle\Config;
 
-class MySQLConfiguration extends DoctrineConfiguration implements MySQLSetConfiguration, MySQLGetConfiguration
+class MySQLParams extends DoctrineParams implements MySQLSetParams, MySQLGetParams
 {
     public const NAME = 'mysql_configuration';
     public const KEYS = [
@@ -103,90 +103,90 @@ class MySQLConfiguration extends DoctrineConfiguration implements MySQLSetConfig
         return $this->get(Key::DRIVER_OPTIONS);
     }
 
-    function setDriver(?string $driver=null): MySQLSetConfiguration
+    function setDriver(?string $driver=null): MySQLSetParams
     {
         $this->set(Key::DRIVER, $driver);
         return $this;
     }
-    function setCharset(?string $charset=null): MySQLSetConfiguration
+    function setCharset(?string $charset=null): MySQLSetParams
     {
         $this->set(Key::CHARSET, $charset);
         return $this;
     }
 
-    function setUser(?string $user=null): MySQLSetConfiguration
+    function setUser(?string $user=null): MySQLSetParams
     {
         $this->set(Key::USER, $user);
         return $this;
     }
 
-    function setPassword(?string $password=null): MySQLSetConfiguration
+    function setPassword(?string $password=null): MySQLSetParams
     {
         $this->set(Key::PASSWORD, $password);
         return $this;
     }
 
-    function setPort(?int $port=null): MySQLSetConfiguration
+    function setPort(?int $port=null): MySQLSetParams
     {
         $this->set(Key::PORT, $port);
         return $this;
     }
 
-    function setHost(?string $host=null): MySQLSetConfiguration
+    function setHost(?string $host=null): MySQLSetParams
     {
         $this->set(Key::HOST, $host);
         return $this;
     }
 
-    function setDBName(?string $dbName=null): MySQLSetConfiguration
+    function setDBName(?string $dbName=null): MySQLSetParams
     {
         $this->set(Key::DBNAME, $dbName);
         return $this;
     }
 
-    function setUnixSocket(?string $unixSocket=null): MySQLSetConfiguration
+    function setUnixSocket(?string $unixSocket=null): MySQLSetParams
     {
         $this->set(Key::UNIX_SOCKET, $unixSocket);
         return $this;
     }
 
-    function setPersistent(bool $persistent = true): MySQLSetConfiguration
+    function setPersistent(bool $persistent = true): MySQLSetParams
     {
         $this->set(Key::PERSISTENT, $persistent);
         return $this;
     }
 
-    function setSSLKey(?string $sslKey=null): MySQLSetConfiguration
+    function setSSLKey(?string $sslKey=null): MySQLSetParams
     {
         $this->set(Key::SSL_KEY, $sslKey);
         return $this;
     }
 
-    function setSSLCert(?string $sslCert=null): MySQLSetConfiguration
+    function setSSLCert(?string $sslCert=null): MySQLSetParams
     {
         $this->set(Key::SSL_CERT, $sslCert);
         return $this;
     }
 
-    function setSSLCA(?string $sslCA=null): MySQLSetConfiguration
+    function setSSLCA(?string $sslCA=null): MySQLSetParams
     {
         $this->set(Key::SSL_CA, $sslCA);
         return $this;
     }
 
-    function setSSLCipher(?string $sslCipher=null): MySQLSetConfiguration
+    function setSSLCipher(?string $sslCipher=null): MySQLSetParams
     {
         $this->set(Key::SSL_CIPHER, $sslCipher);
         return $this;
     }
 
-    function setSSLCaPath(?string $sslCaPath=null): MySQLSetConfiguration
+    function setSSLCaPath(?string $sslCaPath=null): MySQLSetParams
     {
         $this->set(Key::SSL_CAPATH, $sslCaPath);
         return $this;
     }
 
-    function setDriverOptions(int $driverOptions=0): MySQLSetConfiguration
+    function setDriverOptions(int $driverOptions=0): MySQLSetParams
     {
         $this->set(Key::DRIVER_OPTIONS, $driverOptions);
         return $this;
@@ -215,7 +215,7 @@ class MySQLConfiguration extends DoctrineConfiguration implements MySQLSetConfig
      */
     public static function fromArray(array $path): static
     {
-        /** @var MySQLSetConfiguration $instance */
+        /** @var MySQLSetParams $instance */
         $instance = new static(self::NAME);
         $instance->setDriver('mysqli');
         $instance->setCharset($path[Key::CHARSET] ?? null);

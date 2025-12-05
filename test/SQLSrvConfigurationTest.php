@@ -9,9 +9,9 @@
 
 namespace Foamycastle\Config\Tests;
 
-use Foamycastle\Config\SQLSrvConfiguration;
-use Foamycastle\Config\SQLSrvGetConfiguration;
-use Foamycastle\Config\SQLSrvSetConfiguration;
+use Foamycastle\Config\SQLSrvParams;
+use Foamycastle\Config\SQLSrvGetParams;
+use Foamycastle\Config\SQLSrvSetParams;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertTrue;
 
@@ -20,12 +20,12 @@ class SQLSrvConfigurationTest extends TestCase
 
     public function test__construct()
     {
-        $new = new SQLSrvConfiguration('sqlsrv');
-        assertTrue($new instanceof SQLSrvConfiguration);
-        assertTrue($new instanceof SQLSrvGetConfiguration);
-        assertTrue($new instanceof SQLSrvSetConfiguration);
+        $new = new SQLSrvParams('sqlsrv');
+        assertTrue($new instanceof SQLSrvParams);
+        assertTrue($new instanceof SQLSrvGetParams);
+        assertTrue($new instanceof SQLSrvSetParams);
         assertTrue($new->getName() === 'sqlsrv');
-        $new = SQLSrvConfiguration::fromArray([
+        $new = SQLSrvParams::fromArray([
             'driver' => 'sqlsrv',
             'user' => 'root',
             'password' => '',

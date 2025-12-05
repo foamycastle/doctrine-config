@@ -3,28 +3,27 @@
  *  Author: Aaron Sollman
  *  Email:  unclepong@gmail.com
  *  Date:   12/02/25
- *  Time:   15:29
+ *  Time:   14:33
 */
 
 
 namespace Foamycastle\Config;
 
-interface PGSQLGetConfiguration
+interface MySQLGetParams
 {
     function getDriver():?string;
+    function getCharset():?string;
     function getUser():?string;
     function getPassword():?string;
     function getPort():?int;
     function getHost():?string;
     function getDBName():?string;
-    function getSSLMode():?string;
-    function getCharset():?string;
-    function getApplicationName():?string;
+    function getUnixSocket():?string;
     function getPersistent():?bool;
-    function getGSSEncMode():?string;
-    function getSSLRootCert():?string;
     function getSSLKey():?string;
     function getSSLCert():?string;
-    function getSSLCRL():?string;
-
+    function getSSLCA():?string;
+    function getSSLCipher():?string;
+    function getSSLCaPath():?string;
+    function getDriverOptions():?int;
 }

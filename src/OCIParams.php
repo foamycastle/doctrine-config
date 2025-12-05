@@ -9,7 +9,7 @@
 
 namespace Foamycastle\Config;
 
-class OCIConfiguration extends DoctrineConfiguration implements OCIGetConfiguration, OCISetConfiguration
+class OCIParams extends DoctrineParams implements OCIGetParams, OCISetParams
 {
     public const NAME = 'oci_configuration';
     public const KEYS=[
@@ -32,84 +32,84 @@ class OCIConfiguration extends DoctrineConfiguration implements OCIGetConfigurat
     {
         parent::__construct($name ?? self::NAME);
     }
-    function setDriver(?string $driver): OCISetConfiguration
+    function setDriver(?string $driver): OCISetParams
     {
         $this->set(Key::DRIVER, $driver);
         return $this;
     }
-    function setUser(?string $user): OCISetConfiguration
+    function setUser(?string $user): OCISetParams
     {
         $this->set(Key::USER, $user);
         return $this;
     }
 
-    function setPassword(?string $password): OCISetConfiguration
+    function setPassword(?string $password): OCISetParams
     {
         $this->set(Key::PASSWORD, $password);
         return $this;
     }
 
-    function setPort(?int $port): OCISetConfiguration
+    function setPort(?int $port): OCISetParams
     {
         $this->set(Key::PORT, $port);
         return $this;
     }
 
-    function setHost(?string $host): OCISetConfiguration
+    function setHost(?string $host): OCISetParams
     {
         $this->set(Key::HOST, $host);
         return $this;
     }
 
-    function setDBName(?string $dbName): OCISetConfiguration
+    function setDBName(?string $dbName): OCISetParams
     {
         $this->set(Key::DBNAME, $dbName);
         return $this;
     }
 
-    function setPooled(bool $pooled = true): OCISetConfiguration
+    function setPooled(bool $pooled = true): OCISetParams
     {
         $this->set(Key::OCI_POOLED, $pooled);
         return $this;
     }
 
-    function setConnectionString(?string $connectionString): OCISetConfiguration
+    function setConnectionString(?string $connectionString): OCISetParams
     {
         $this->set(Key::OCI_CONNECT_STRING, $connectionString);
         return $this;
     }
 
-    function setPersistent(bool $persistent = true): OCISetConfiguration
+    function setPersistent(bool $persistent = true): OCISetParams
     {
         $this->set(Key::PERSISTENT, $persistent);
         return $this;
     }
 
-    function setServiceName(?string $serviceName): OCISetConfiguration
+    function setServiceName(?string $serviceName): OCISetParams
     {
         $this->set(Key::OCI_SERVICE_NAME, $serviceName);
         return $this;
     }
 
-    function setService(?string $service): OCISetConfiguration
+    function setService(?string $service): OCISetParams
     {
         $this->set(Key::OCI_SERVICE, $service);
         return $this;
     }
 
-    function setCharset(?string $charset): OCISetConfiguration
+    function setCharset(?string $charset): OCISetParams
     {
         $this->set(Key::CHARSET, $charset);
         return $this;
     }
 
-    function setInstanceName(?string $instanceName): OCISetConfiguration
+    function setInstanceName(?string $instanceName): OCISetParams
     {
         $this->set(Key::OCI_INSTANCE_NAME, $instanceName);
         return $this;
     }
 
-    function setDriverOptions(array $driverOptions): OCISetConfiguration
+    function setDriverOptions(array $driverOptions): OCISetParams
     {
         $this->set(Key::DRIVER_OPTIONS, $driverOptions);
         return $this;
