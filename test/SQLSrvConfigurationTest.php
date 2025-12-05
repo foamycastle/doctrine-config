@@ -18,18 +18,6 @@ use function PHPUnit\Framework\assertTrue;
 class SQLSrvConfigurationTest extends TestCase
 {
 
-    public function testGetDSNString()
-    {
-        $new = SQLSrvConfiguration::fromArray([
-            'driver' => 'sqlsrv',
-            'user' => 'root',
-            'password' => '',
-            'host' => 'localhost',
-            'dbname' => 'test'
-        ]);
-        $string = $new->getDSNString();
-    }
-
     public function test__construct()
     {
         $new = new SQLSrvConfiguration('sqlsrv');

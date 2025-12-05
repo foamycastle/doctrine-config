@@ -15,7 +15,6 @@ abstract class DoctrineConfiguration extends BaseConfig
 {
     public const NAME = 'doctrine_configuration';
     public const KEYS=[];
-    protected Connection $conn;
 
     public function __construct(?string $name = null)
     {
