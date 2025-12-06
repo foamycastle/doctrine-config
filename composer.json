@@ -14,7 +14,7 @@
     "foamycastle/config": "@dev",
     "doctrine/dbal": "4.4.*",
     "doctrine/orm": "3.5.*",
-    "symfony/cache": "8.0.*",
+    "symfony/cache": "^7",
     "foamycastle/helper": "@dev"
   },
   "require-dev": {
