@@ -9,7 +9,7 @@
 
 namespace Foamycastle\Config;
 
-interface IBMDB2GetConfiguration
+interface IBMDB2GetParams
 {
     function getDriver():?string;
     function getUser():?string;

@@ -11,11 +11,10 @@ namespace Foamycastle\Config;
 
 use Doctrine\DBAL\Connection;
 
-abstract class DoctrineConfiguration extends BaseConfig
+abstract class DoctrineParams extends BaseConfig
 {
     public const NAME = 'doctrine_configuration';
     public const KEYS=[];
-    protected Connection $conn;
 
     public function __construct(?string $name = null)
     {

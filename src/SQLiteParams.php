@@ -11,7 +11,7 @@ namespace Foamycastle\Config;
 
 use Foamycastle\ConfigConfiguration;
 
-class SQLiteConfiguration extends DoctrineConfiguration implements SQLiteSetConfiguration, SQLiteGetConfiguration
+class SQLiteParams extends DoctrineParams implements SQLiteSetParams, SQLiteGetParams
 {
     public const NAME = 'sqlite_configuration';
     public const KEYS = [
@@ -25,30 +25,30 @@ class SQLiteConfiguration extends DoctrineConfiguration implements SQLiteSetConf
     {
         parent::__construct($name ?? self::NAME);
     }
-    function setDriver(?string $driver): SQLiteSetConfiguration
+    function setDriver(?string $driver): SQLiteSetParams
     {
         $this->set(Key::DRIVER, $driver);
         return $this;
     }
-    function setUser(string|null $user): SQLiteSetConfiguration
+    function setUser(string|null $user): SQLiteSetParams
     {
         $this->set(Key::USER, $user);
         return $this;
     }
 
-    function setPassword(string|null $password): SQLiteSetConfiguration
+    function setPassword(string|null $password): SQLiteSetParams
     {
         $this->set(Key::PASSWORD, $password);
         return $this;
     }
 
-    function setPath(string|null $path): SQLiteSetConfiguration
+    function setPath(string|null $path): SQLiteSetParams
     {
         $this->set(Key::PATH, $path);
         return $this;
     }
 
-    function setInMemory(bool|null $inMemory): SQLiteSetConfiguration
+    function setInMemory(bool|null $inMemory): SQLiteSetParams
     {
         $this->set(Key::IN_MEMORY, $inMemory);
         return $this;
@@ -85,11 +85,11 @@ class SQLiteConfiguration extends DoctrineConfiguration implements SQLiteSetConf
      *     path?:string,
      *     in_memory?:bool
      * } $path
-     * @return SQLiteGetConfiguration
+     * @return SQLiteGetParams
      */
     public static function fromArray(array $path): static
     {
-        /** @var SQLiteSetConfiguration $config */
+        /** @var SQLiteSetParams $config */
         $config = new self(self::NAME);
         $config->setDriver('sqlite3');
         $config->setUser($path[Key::USER] ?? '');

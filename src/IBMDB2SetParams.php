@@ -9,7 +9,7 @@
 
 namespace Foamycastle\Config;
 
-interface IBMDB2SetConfiguration
+interface IBMDB2SetParams
 {
     function setDriver(?string $driver):self;
     function setUser(?string $user):self;

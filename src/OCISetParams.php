@@ -9,7 +9,7 @@
 
 namespace Foamycastle\Config;
 
-interface OCISetConfiguration
+interface OCISetParams
 {
     function setDriver(?string $driver):self;
     function setUser(?string $user):self;

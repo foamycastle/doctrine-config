@@ -3,13 +3,13 @@
  *  Author: Aaron Sollman
  *  Email:  unclepong@gmail.com
  *  Date:   12/02/25
- *  Time:   14:33
+ *  Time:   15:50
 */
 
 
 namespace Foamycastle\Config;
 
-interface MySQLGetConfiguration
+interface OCIGetParams
 {
     function getDriver():?string;
     function getCharset():?string;
@@ -18,12 +18,11 @@ interface MySQLGetConfiguration
     function getPort():?int;
     function getHost():?string;
     function getDBName():?string;
-    function getUnixSocket():?string;
+    function getPooled():?bool;
+    function getConnectionString():?string;
     function getPersistent():?bool;
-    function getSSLKey():?string;
-    function getSSLCert():?string;
-    function getSSLCA():?string;
-    function getSSLCipher():?string;
-    function getSSLCaPath():?string;
-    function getDriverOptions():?int;
+    function getServiceName():?string;
+    function getService():?string;
+    function getInstanceName():?string;
+    function getDriverOptions():?array;
 }

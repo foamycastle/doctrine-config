@@ -9,7 +9,7 @@
 
 namespace Foamycastle\Config;
 
-interface SQLiteGetConfiguration
+interface SQLiteGetParams
 {
     function getDriver():?string;
     function getUser():?string;

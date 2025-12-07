@@ -3,20 +3,15 @@
  *  Author: Aaron Sollman
  *  Email:  unclepong@gmail.com
  *  Date:   12/02/25
- *  Time:   16:08
+ *  Time:   16:14
 */
 
 
 namespace Foamycastle\Config;
 
-
-
-use Foamycastle\Utilities\Arr;
-
-class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConfiguration, SQLSrvSetConfiguration
+class IBMDB2Params extends DoctrineParams implements IBMDB2GetParams, IBMDB2SetParams
 {
-    public const NAME = 'sqlsrv_configuration';
-    public const DSN_STRING='{driver}://{user}:{password}@{host}:{port}/{dbname}';
+    public const NAME = 'ibmdb2_configuration';
     public const KEYS = [
         Key::DRIVER,
         Key::USER,
@@ -24,57 +19,65 @@ class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConf
         Key::PORT,
         Key::HOST,
         Key::DBNAME,
-        Key::DRIVER_OPTIONS
+        Key::DRIVER_OPTIONS,
+        Key::PERSISTENT
     ];
-    function __construct(?string $name = null)
+    public function __construct(?string $name = null)
     {
         parent::__construct($name ?? self::NAME);
     }
-    function setDriver(?string $driver): SQLSrvSetConfiguration
+    function setDriver(?string $driver): IBMDB2SetParams
     {
         $this->set(Key::DRIVER, $driver);
         return $this;
     }
-    function setUser(?string $user): SQLSrvSetConfiguration
+    function setUser(?string $user): IBMDB2SetParams
     {
         $this->set(Key::USER, $user);
         return $this;
     }
 
-    function setPassword(?string $password): SQLSrvSetConfiguration
+    function setPassword(?string $password): IBMDB2SetParams
     {
         $this->set(Key::PASSWORD, $password);
         return $this;
     }
 
-    function setPort(?int $port): SQLSrvSetConfiguration
+    function setPort(?int $port): IBMDB2SetParams
     {
         $this->set(Key::PORT, $port);
         return $this;
     }
 
-    function setHost(?string $host): SQLSrvSetConfiguration
+    function setHost(?string $host): IBMDB2SetParams
     {
         $this->set(Key::HOST, $host);
         return $this;
     }
 
-    function setDBName(?string $dbName): SQLSrvSetConfiguration
+    function setDBName(?string $dbName): IBMDB2SetParams
     {
         $this->set(Key::DBNAME, $dbName);
         return $this;
     }
 
-    function setDriverOptions(array $driverOptions): SQLSrvSetConfiguration
+    function setDriverOptions(array $driverOptions): IBMDB2SetParams
     {
         $this->set(Key::DRIVER_OPTIONS, $driverOptions);
         return $this;
     }
+
+    function setPersistent(bool $persistent = true): IBMDB2SetParams
+    {
+        $this->set(Key::PERSISTENT, $persistent);
+        return $this;
+    }
+
     function getDriver(): ?string
     {
         return $this->get(Key::DRIVER);
     }
-    function getUserName(): ?string
+    function getUser(): ?string
     {
         return $this->get(Key::USER);
     }
@@ -104,6 +107,11 @@ class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConf
         return $this->get(Key::DRIVER_OPTIONS);
     }
 
+    function getPersistent(): ?bool
+    {
+        return $this->get(Key::PERSISTENT);
+    }
+
     /**
      * @param array{
      *     driver?: string,
@@ -112,22 +120,25 @@ class SQLSrvConfiguration extends DoctrineConfiguration implements SQLSrvGetConf
      *     port?: int,
      *     host?: string,
      *     dbname?: string,
-     *     driver_options?: array
+     *     driverOptions?: array,
+     *     persistent?: bool
      * } $path
      * @return static
      */
-
     public static function fromArray(array $path): static
     {
         $instance = new static(self::NAME);
-        $instance->setDriver('sqlsrv');
+        $instance->setDriver('ibm_db2');
         $instance->setUser($path[Key::USER] ?? null);
         $instance->setPassword($path[Key::PASSWORD] ?? null);
-        $instance->setPort(1433 ?? null);
+        $instance->setPort(50000 ?? null);
         $instance->setHost($path[Key::HOST] ?? null);
         $instance->setDBName($path[Key::DBNAME] ?? null);
         $instance->setDriverOptions($path[Key::DRIVER_OPTIONS] ?? []);
+        $instance->setPersistent($path[Key::PERSISTENT] ?? null);
         return $instance;
     }
+
+
 
 }
